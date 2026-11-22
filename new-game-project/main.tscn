@@ -1,15 +1,45 @@
-[gd_scene format=3 uid="uid://cqow47bch5ocs"]
+[gd_scene format=4 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bfb8y1vshshnd" path="res://New Piskel.png" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://bss4mgihbqfdc" path="res://character_body_2d.gd" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ctcigty4mihk" path="res://junior.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dkbggibi8613g" path="res://cobblestone.png" id="5_272bh"]
+[ext_resource type="Texture2D" uid="uid://xhuwxvua71j7" path="res://dirt.png" id="6_5vw27"]
+[ext_resource type="Texture2D" uid="uid://co2lap5llja8b" path="res://grass.png" id="7_kek77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovux7"]
 size = Vector2(17, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d0jv"]
 size = Vector2(16.625, 24)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
+texture = ExtResource("5_272bh")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efxa6"]
+texture = ExtResource("6_5vw27")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dg77c"]
+texture = ExtResource("7_kek77")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5d0jv"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4c57u")
+sources/1 = SubResource("TileSetAtlasSource_efxa6")
+sources/2 = SubResource("TileSetAtlasSource_dg77c")
 
 [node name="Node" type="Node" unique_id=1223467287]
 
@@ -38,3 +68,8 @@ texture = ExtResource("4_lquwl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1042663425]
 position = Vector2(21, -12)
 shape = SubResource("RectangleShape2D_5d0jv")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=685902111]
+position = Vector2(-1, 0)
+tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAD+/wAAAAAAAAAAAAD+//3/AAAAAAAAAAACAP3/AAAAAAAAAAADAAAAAAAAAAAAAAACAAEAAAAAAAAAAAADAP3/AAAAAAAAAAACAPz/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_5d0jv")
